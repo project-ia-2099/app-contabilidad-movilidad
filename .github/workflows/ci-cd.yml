@@ -6,11 +6,13 @@ on:
     paths:
       - 'backend/**'
       - 'frontend/**'
+      - '.github/workflows/ci-cd.yml'
   push:
     branches: [ main ]
     paths:
       - 'backend/**'
       - 'frontend/**'
+      - '.github/workflows/ci-cd.yml'
   workflow_dispatch:
 
 env:
@@ -30,7 +32,7 @@ jobs:
 
       - name: Escaneo de Secretos Expuestos (Cero Exposición)
         run: |
-          if grep -RInE "Password\s*=|User Id\s*=|AccountKey\s*=" backend/Books.Api/appsettings*.json backend/Books.Domain backend/Books.Application; then
+          if grep -RInE "Password\s*=|User Id\s*=|AccountKey\s*=" backend/Movilidad.Api/appsettings*.json backend/Movilidad.Domain backend/Movilidad.Application; then
             echo "❌ ERROR DE SEGURIDAD: Se detectaron credenciales hardcodeadas en el código o appsettings."
             exit 1
           fi

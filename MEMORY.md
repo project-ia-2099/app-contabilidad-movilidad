@@ -42,3 +42,14 @@
 - [x] **Tarea 8:** Exigir lógica de negocio 100% en Backend (preparado para futura unificación por microservicios) y estandarizar el Frontend con Design System Minimalista Pastel, Font Awesome Free y cero emoticones Unicode.
 - [x] **Tarea 9:** Migrar gobernanza de base de datos a **MySQL** (1 BD por área `<entorno>_<area>` + prefijo `<nombre>_` en tablas y `__EFMigrationsHistory_<nombre>`), restringir áreas permitidas a `contabilidad`, `rrhh`, `sistemas`, `comercial`, `almacen` y explicitar `ASPNETCORE_ENVIRONMENT` en `ci-cd.yml`.
 
+
+### Plan aprobado: Registro de gastos de movilidad (Contabilidad)
+
+- [x] Implementar y verificar el backend Clean Architecture en .NET 10: registrar, listar y eliminar gastos sin login. Cada gasto tiene Fecha, Concepto, Monto y Trabajador.
+- [x] Implementar y verificar el frontend React con TypeScript, Font Awesome Free y diseño minimalista pastel.
+- [x] Verificar el flujo contra MySQL local y ejecutar dotnet test (5 pruebas), npm test (4 pruebas) y npm run build. Verificar en Edge el registro, listado y eliminación en escritorio y móvil.
+- [x] Actualizar README.md y preparar la entrega de feat/initial-app.
+- La fusión autorizada y el despliegue de QA se registran en los [pull requests](https://github.com/project-ia-2099/app-contabilidad-movilidad/pulls?q=is%3Apr) y las [ejecuciones de main](https://github.com/project-ia-2099/app-contabilidad-movilidad/actions/workflows/ci-cd.yml?query=branch%3Amain).
+
+La fecha se conserva como DATE en MySQL, con conversión explícita en EF Core para mantener DateOnly en el dominio y la API. La validación de campos y montos corresponde al backend.
+
